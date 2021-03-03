@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2bcdc2e535864c4bb9703b762cc8cf1d" Name="Diagram1" >
+        <EntityTypeShape EntityType="SupportDBModel.MailAddress" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="SupportDBModel.Mail" Width="1.5" PointX="3" PointY="3.625" />
+        <EntityTypeShape EntityType="SupportDBModel.Ticket" Width="1.5" PointX="0.75" PointY="2.375" />
+        <AssociationConnector Association="SupportDBModel.FK_MailAddresses_ToTable" />
+        <AssociationConnector Association="SupportDBModel.FK_Mails_ToTable" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
