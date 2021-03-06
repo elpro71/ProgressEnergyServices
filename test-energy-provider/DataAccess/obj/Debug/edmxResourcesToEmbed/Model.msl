@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SupportDBModelStoreContainer" CdmEntityContainer="SupportDBEntities">
+    <EntitySetMapping Name="MailAddresses">
+      <EntityTypeMapping TypeName="SupportDBModel.MailAddress">
+        <MappingFragment StoreEntitySet="MailAddresses">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="TicketNumber" ColumnName="TicketNumber" />
+          <ScalarProperty Name="PrimaryKey" ColumnName="PrimaryKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mails">
+      <EntityTypeMapping TypeName="SupportDBModel.Mail">
+        <MappingFragment StoreEntitySet="Mails">
+          <ScalarProperty Name="creationTime" ColumnName="creationTime" />
+          <ScalarProperty Name="TicketNumber" ColumnName="TicketNumber" />
+          <ScalarProperty Name="MailContent" ColumnName="MailContent" />
+          <ScalarProperty Name="PrimaryKey" ColumnName="PrimaryKey" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tickets">
+      <EntityTypeMapping TypeName="SupportDBModel.Ticket">
+        <MappingFragment StoreEntitySet="Tickets">
+          <ScalarProperty Name="Creation" ColumnName="Creation" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TicketNumber" ColumnName="TicketNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SupportDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SupportDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MailAddresses" EntityType="SupportDBModel.MailAddress" />
+    <EntitySet Name="Mails" EntityType="SupportDBModel.Mail" />
+    <EntitySet Name="Tickets" EntityType="SupportDBModel.Ticket" />
+    <AssociationSet Name="FK_MailAddresses_ToTable" Association="SupportDBModel.FK_MailAddresses_ToTable">
+      <End Role="Ticket" EntitySet="Tickets" />
+      <End Role="MailAddress" EntitySet="MailAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mails_ToTable" Association="SupportDBModel.FK_Mails_ToTable">
+      <End Role="Ticket" EntitySet="Tickets" />
+      <End Role="Mail" EntitySet="Mails" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="MailAddress">
+    <Key>
+      <PropertyRef Name="PrimaryKey" />
+    </Key>
+    <Property Name="PrimaryKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TicketNumber" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Ticket" Relationship="SupportDBModel.FK_MailAddresses_ToTable" FromRole="MailAddress" ToRole="Ticket" />
+  </EntityType>
+  <EntityType Name="Mail">
+    <Key>
+      <PropertyRef Name="PrimaryKey" />
+    </Key>
+    <Property Name="PrimaryKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MailContent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TicketNumber" Type="Int32" Nullable="false" />
+    <Property Name="creationTime" Type="DateTimeOffset" Precision="7" />
+    <NavigationProperty Name="Ticket" Relationship="SupportDBModel.FK_Mails_ToTable" FromRole="Mail" ToRole="Ticket" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="TicketNumber" />
+    </Key>
+    <Property Name="TicketNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="Creation" Type="DateTimeOffset" Precision="7" />
+    <NavigationProperty Name="MailAddresses" Relationship="SupportDBModel.FK_MailAddresses_ToTable" FromRole="Ticket" ToRole="MailAddress" />
+    <NavigationProperty Name="Mails" Relationship="SupportDBModel.FK_Mails_ToTable" FromRole="Ticket" ToRole="Mail" />
+  </EntityType>
+  <Association Name="FK_MailAddresses_ToTable">
+    <End Type="SupportDBModel.Ticket" Role="Ticket" Multiplicity="1" />
+    <End Type="SupportDBModel.MailAddress" Role="MailAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ticket">
+        <PropertyRef Name="TicketNumber" />
+      </Principal>
+      <Dependent Role="MailAddress">
+        <PropertyRef Name="TicketNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mails_ToTable">
+    <End Type="SupportDBModel.Ticket" Role="Ticket" Multiplicity="1" />
+    <End Type="SupportDBModel.Mail" Role="Mail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ticket">
+        <PropertyRef Name="TicketNumber" />
+      </Principal>
+      <Dependent Role="Mail">
+        <PropertyRef Name="TicketNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

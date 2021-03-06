@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SupportDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MailAddresses">
+    <Key>
+      <PropertyRef Name="PrimaryKey" />
+    </Key>
+    <Property Name="PrimaryKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TicketNumber" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Mails">
+    <Key>
+      <PropertyRef Name="PrimaryKey" />
+    </Key>
+    <Property Name="PrimaryKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MailContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TicketNumber" Type="int" Nullable="false" />
+    <Property Name="creationTime" Type="datetimeoffset" Precision="7" />
+  </EntityType>
+  <EntityType Name="Tickets">
+    <Key>
+      <PropertyRef Name="TicketNumber" />
+    </Key>
+    <Property Name="TicketNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="Creation" Type="datetimeoffset" Precision="7" />
+  </EntityType>
+  <Association Name="FK_MailAddresses_ToTable">
+    <End Role="Tickets" Type="Self.Tickets" Multiplicity="1" />
+    <End Role="MailAddresses" Type="Self.MailAddresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tickets">
+        <PropertyRef Name="TicketNumber" />
+      </Principal>
+      <Dependent Role="MailAddresses">
+        <PropertyRef Name="TicketNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mails_ToTable">
+    <End Role="Tickets" Type="Self.Tickets" Multiplicity="1" />
+    <End Role="Mails" Type="Self.Mails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tickets">
+        <PropertyRef Name="TicketNumber" />
+      </Principal>
+      <Dependent Role="Mails">
+        <PropertyRef Name="TicketNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SupportDBModelStoreContainer">
+    <EntitySet Name="MailAddresses" EntityType="Self.MailAddresses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mails" EntityType="Self.Mails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tickets" EntityType="Self.Tickets" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_MailAddresses_ToTable" Association="Self.FK_MailAddresses_ToTable">
+      <End Role="Tickets" EntitySet="Tickets" />
+      <End Role="MailAddresses" EntitySet="MailAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mails_ToTable" Association="Self.FK_Mails_ToTable">
+      <End Role="Tickets" EntitySet="Tickets" />
+      <End Role="Mails" EntitySet="Mails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

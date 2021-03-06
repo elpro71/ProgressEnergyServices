@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31019.35
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{6EA29C16-FEEA-4F31-A344-881505F52416}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HMA_MailAgent", "HMA_MailAgent\HMA_MailAgent.csproj", "{E9F850B2-0F8A-4D69-B1CD-C063A1E52FED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketManagementApplication", "TicketManagementApplication\TicketManagementApplication.csproj", "{A5E12F64-DEAF-42DF-9792-E4A1442D5B2E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6EA29C16-FEEA-4F31-A344-881505F52416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EA29C16-FEEA-4F31-A344-881505F52416}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EA29C16-FEEA-4F31-A344-881505F52416}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6EA29C16-FEEA-4F31-A344-881505F52416}.Debug|x64.Build.0 = Debug|Any CPU
+		{6EA29C16-FEEA-4F31-A344-881505F52416}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6EA29C16-FEEA-4F31-A344-881505F52416}.Debug|x86.Build.0 = Debug|Any CPU
+		{6EA29C16-FEEA-4F31-A344-881505F52416}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EA29C16-FEEA-4F31-A344-881505F52416}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{6EA29C16-FEEA-4F31-A344-881505F52416}.Release|x64.ActiveCfg = Debug|Any CPU
+		{6EA29C16-FEEA-4F31-A344-881505F52416}.Release|x64.Build.0 = Debug|Any CPU
+		{6EA29C16-FEEA-4F31-A344-881505F52416}.Release|x86.ActiveCfg = Debug|Any CPU
+		{6EA29C16-FEEA-4F31-A344-881505F52416}.Release|x86.Build.0 = Debug|Any CPU
+		{E9F850B2-0F8A-4D69-B1CD-C063A1E52FED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9F850B2-0F8A-4D69-B1CD-C063A1E52FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9F850B2-0F8A-4D69-B1CD-C063A1E52FED}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E9F850B2-0F8A-4D69-B1CD-C063A1E52FED}.Debug|x64.Build.0 = Debug|Any CPU
+		{E9F850B2-0F8A-4D69-B1CD-C063A1E52FED}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E9F850B2-0F8A-4D69-B1CD-C063A1E52FED}.Debug|x86.Build.0 = Debug|Any CPU
+		{E9F850B2-0F8A-4D69-B1CD-C063A1E52FED}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9F850B2-0F8A-4D69-B1CD-C063A1E52FED}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{E9F850B2-0F8A-4D69-B1CD-C063A1E52FED}.Release|x64.ActiveCfg = Debug|Any CPU
+		{E9F850B2-0F8A-4D69-B1CD-C063A1E52FED}.Release|x64.Build.0 = Debug|Any CPU
+		{E9F850B2-0F8A-4D69-B1CD-C063A1E52FED}.Release|x86.ActiveCfg = Debug|Any CPU
+		{E9F850B2-0F8A-4D69-B1CD-C063A1E52FED}.Release|x86.Build.0 = Debug|Any CPU
+		{A5E12F64-DEAF-42DF-9792-E4A1442D5B2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5E12F64-DEAF-42DF-9792-E4A1442D5B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5E12F64-DEAF-42DF-9792-E4A1442D5B2E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A5E12F64-DEAF-42DF-9792-E4A1442D5B2E}.Debug|x64.Build.0 = Debug|Any CPU
+		{A5E12F64-DEAF-42DF-9792-E4A1442D5B2E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A5E12F64-DEAF-42DF-9792-E4A1442D5B2E}.Debug|x86.Build.0 = Debug|Any CPU
+		{A5E12F64-DEAF-42DF-9792-E4A1442D5B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5E12F64-DEAF-42DF-9792-E4A1442D5B2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5E12F64-DEAF-42DF-9792-E4A1442D5B2E}.Release|x64.ActiveCfg = Release|Any CPU
+		{A5E12F64-DEAF-42DF-9792-E4A1442D5B2E}.Release|x64.Build.0 = Release|Any CPU
+		{A5E12F64-DEAF-42DF-9792-E4A1442D5B2E}.Release|x86.ActiveCfg = Release|Any CPU
+		{A5E12F64-DEAF-42DF-9792-E4A1442D5B2E}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D443ACA2-CA81-4B40-A167-69636EB8F9F2}
+	EndGlobalSection
+EndGlobal

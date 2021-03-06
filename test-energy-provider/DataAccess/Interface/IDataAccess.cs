@@ -19,5 +19,7 @@ namespace DataAccess
         Types.MatchingTokenResponse LookUp(string mailContent);
         bool UpdateTicket(int ticket, TicketUpdateRequest updateData);
         bool CreateNewTicket(TicketUpdateRequest updateData);
+
+        //event Action OnTicketSetChanges;
     }
 }
