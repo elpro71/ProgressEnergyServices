@@ -3,6 +3,8 @@ using System.Windows;
 using TicketManagementApplication.Services;
 using Splat;
 using System;
+using ReactiveUI;
+using System.Reactive.Concurrency;
 
 namespace TicketManagementApplication
 {
@@ -18,6 +20,9 @@ namespace TicketManagementApplication
             {
                return new EmailsViewModel(locator.GetService<ITicketService>());
             });
+
+            RxApp.MainThreadScheduler = Scheduler.CurrentThread;
+
             base.OnStartup(e);
         }
         

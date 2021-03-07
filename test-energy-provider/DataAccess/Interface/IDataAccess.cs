@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DataAccess
 {
@@ -20,6 +21,8 @@ namespace DataAccess
         bool UpdateTicket(int ticket, TicketUpdateRequest updateData);
         bool CreateNewTicket(TicketUpdateRequest updateData);
 
+        IEnumerable<Ticket> ReadPage(int pageNumber);
+             
         //event Action OnTicketSetChanges;
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 
 namespace DataAccess
 {
@@ -52,6 +54,20 @@ namespace DataAccess
             return true;
         }
 
+        public IEnumerable<Ticket> ReadPage(int pageNumber)
+        {
+            const int pageSize = 25;
+            var dbEntities = new DataAccess.SupportDBEntities();
+
+            dbEntities.Tickets.Include(x=> x.MailAddresses).Include(x=>x.Mails).Load();            
+            return
+                dbEntities.Tickets
+                .OrderBy(ticket => ticket.TicketNumber)
+                .Skip(pageNumber * pageSize)
+                .Take(pageSize)
+                .ToList();
+        }
+
         #region Implementation details
         private Types.MatchingTokenResponse CreateResponse(IQueryable<Ticket> dbSearch) =>
         new Types.MatchingTokenResponse
@@ -59,6 +75,8 @@ namespace DataAccess
             State = MatchingTokenResponseStatus.Ok,
             TicketNumber = dbSearch.First().TicketNumber
         };
+
+
         #endregion
     }
 
